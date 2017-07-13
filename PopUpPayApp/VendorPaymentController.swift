@@ -93,7 +93,7 @@ class VendorPaymentController: UIViewController {
     
     func getCart() -> [String : Int] {
         //TODO: Replace
-        return ["lemonade" : 1, "cookies" : 2]
+        return ["lemonade" : 1, "cookies" : 2, "total" : 100]
     }
     
     

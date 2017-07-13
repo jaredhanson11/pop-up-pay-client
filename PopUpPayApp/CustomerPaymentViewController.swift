@@ -9,7 +9,7 @@
 import UIKit
 import PassKit
 
-class CustomerPaymentViewController: UIViewController {
+class CustomerPaymentViewController: QRScanViewController {
 
     
     override func viewDidLoad() {
@@ -38,8 +38,17 @@ class CustomerPaymentViewController: UIViewController {
     }
     
     func testButtonClicked(_ sender : Any) {
-        applePay(merchant_id: "whatever", description: NSObject())
+        // applePay(merchant_id: "merchant.popuppay", description: [:])
         
+    }
+    
+    override func scanCallback(qrvalue: String) {
+        do {
+            let data = try JSONSerialization.jsonObject(with: qrvalue.data(using: .utf8)!, options: []) as! [String : AnyObject]
+            applePay(merchant_id: "merchant.popuppay", paymentData: data)
+        } catch {
+            
+        }
     }
     
 
@@ -53,7 +62,7 @@ class CustomerPaymentViewController: UIViewController {
     }
     */
     
-    func applePay(merchant_id: String, description: NSObject) {
+    func applePay(merchant_id: String, paymentData: [String : AnyObject]) {
         let request = PKPaymentRequest()
         request.merchantIdentifier = merchant_id
         request.supportedNetworks = [PKPaymentNetwork.visa, PKPaymentNetwork.masterCard]
@@ -64,7 +73,8 @@ class CustomerPaymentViewController: UIViewController {
         // add summary items for transaction here
         var summaryItems = [PKPaymentSummaryItem]()
         
-        let item = PKPaymentSummaryItem(label: "to whoever", amount: NSDecimalNumber(value: 100))
+        let total = paymentData["total"] as! Double
+        let item = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(value: total))
     
         summaryItems.append(item)
         request.paymentSummaryItems = summaryItems

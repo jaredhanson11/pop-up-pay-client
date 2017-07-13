@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.developer.in-app-payments</key>
 	<array>
-		<string>merchant.com.apple.ASA-Test</string>
+		<string>merchant.popuppay</string>
 	</array>
 </dict>
 </plist>
