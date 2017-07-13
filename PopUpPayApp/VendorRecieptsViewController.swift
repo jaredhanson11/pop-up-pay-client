@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  SecondViewController.swift
 //  PopUpPayApp
 //
 //  Created by Meghana Valluri on 7/13/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class VendorRecieptsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

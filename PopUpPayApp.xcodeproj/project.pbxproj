@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD6A4AEE1F17DF240097F2C7 /* Customer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD6A4AED1F17DF240097F2C7 /* Customer.storyboard */; };
+		AD6A4AF21F17DFF90097F2C7 /* CustomerPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6A4AF11F17DFF90097F2C7 /* CustomerPaymentViewController.swift */; };
+		AD6A4AF41F17E0360097F2C7 /* CustomerRecieptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6A4AF31F17E0360097F2C7 /* CustomerRecieptsViewController.swift */; };
 		E3605D701F17D84C00E64947 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3605D6F1F17D84C00E64947 /* AppDelegate.swift */; };
-		E3605D721F17D84C00E64947 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3605D711F17D84C00E64947 /* FirstViewController.swift */; };
-		E3605D741F17D84C00E64947 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3605D731F17D84C00E64947 /* SecondViewController.swift */; };
-		E3605D771F17D84C00E64947 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3605D751F17D84C00E64947 /* Main.storyboard */; };
+		E3605D721F17D84C00E64947 /* VendorPaymentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3605D711F17D84C00E64947 /* VendorPaymentController.swift */; };
+		E3605D741F17D84C00E64947 /* VendorRecieptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3605D731F17D84C00E64947 /* VendorRecieptsViewController.swift */; };
+		E3605D771F17D84C00E64947 /* Vendor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3605D751F17D84C00E64947 /* Vendor.storyboard */; };
 		E3605D791F17D84C00E64947 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3605D781F17D84C00E64947 /* Assets.xcassets */; };
 		E3605D7C1F17D84C00E64947 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3605D7A1F17D84C00E64947 /* LaunchScreen.storyboard */; };
 		E3605D871F17D84C00E64947 /* PopUpPayAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3605D861F17D84C00E64947 /* PopUpPayAppTests.swift */; };
@@ -35,11 +38,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD6A4AED1F17DF240097F2C7 /* Customer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Customer.storyboard; sourceTree = "<group>"; };
+		AD6A4AF11F17DFF90097F2C7 /* CustomerPaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerPaymentViewController.swift; sourceTree = "<group>"; };
+		AD6A4AF31F17E0360097F2C7 /* CustomerRecieptsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerRecieptsViewController.swift; sourceTree = "<group>"; };
 		E3605D6C1F17D84C00E64947 /* PopUpPayApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopUpPayApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3605D6F1F17D84C00E64947 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E3605D711F17D84C00E64947 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		E3605D731F17D84C00E64947 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		E3605D761F17D84C00E64947 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E3605D711F17D84C00E64947 /* VendorPaymentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorPaymentController.swift; sourceTree = "<group>"; };
+		E3605D731F17D84C00E64947 /* VendorRecieptsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorRecieptsViewController.swift; sourceTree = "<group>"; };
+		E3605D761F17D84C00E64947 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Vendor.storyboard; sourceTree = "<group>"; };
 		E3605D781F17D84C00E64947 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3605D7B1F17D84C00E64947 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3605D7D1F17D84C00E64947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +82,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD6A4AEF1F17DF3A0097F2C7 /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				AD6A4AED1F17DF240097F2C7 /* Customer.storyboard */,
+				AD6A4AF11F17DFF90097F2C7 /* CustomerPaymentViewController.swift */,
+				AD6A4AF31F17E0360097F2C7 /* CustomerRecieptsViewController.swift */,
+			);
+			name = Customer;
+			sourceTree = "<group>";
+		};
+		AD6A4AF01F17DF480097F2C7 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				E3605D711F17D84C00E64947 /* VendorPaymentController.swift */,
+				E3605D731F17D84C00E64947 /* VendorRecieptsViewController.swift */,
+				E3605D751F17D84C00E64947 /* Vendor.storyboard */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
 		E3605D631F17D84C00E64947 = {
 			isa = PBXGroup;
 			children = (
@@ -100,9 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				E3605D6F1F17D84C00E64947 /* AppDelegate.swift */,
-				E3605D711F17D84C00E64947 /* FirstViewController.swift */,
-				E3605D731F17D84C00E64947 /* SecondViewController.swift */,
-				E3605D751F17D84C00E64947 /* Main.storyboard */,
+				AD6A4AEF1F17DF3A0097F2C7 /* Customer */,
+				AD6A4AF01F17DF480097F2C7 /* Vendor */,
 				E3605D781F17D84C00E64947 /* Assets.xcassets */,
 				E3605D7A1F17D84C00E64947 /* LaunchScreen.storyboard */,
 				E3605D7D1F17D84C00E64947 /* Info.plist */,
@@ -235,9 +260,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD6A4AEE1F17DF240097F2C7 /* Customer.storyboard in Resources */,
 				E3605D7C1F17D84C00E64947 /* LaunchScreen.storyboard in Resources */,
 				E3605D791F17D84C00E64947 /* Assets.xcassets in Resources */,
-				E3605D771F17D84C00E64947 /* Main.storyboard in Resources */,
+				E3605D771F17D84C00E64947 /* Vendor.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,9 +288,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3605D741F17D84C00E64947 /* SecondViewController.swift in Sources */,
+				E3605D741F17D84C00E64947 /* VendorRecieptsViewController.swift in Sources */,
+				AD6A4AF21F17DFF90097F2C7 /* CustomerPaymentViewController.swift in Sources */,
 				E3605D701F17D84C00E64947 /* AppDelegate.swift in Sources */,
-				E3605D721F17D84C00E64947 /* FirstViewController.swift in Sources */,
+				AD6A4AF41F17E0360097F2C7 /* CustomerRecieptsViewController.swift in Sources */,
+				E3605D721F17D84C00E64947 /* VendorPaymentController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,12 +328,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E3605D751F17D84C00E64947 /* Main.storyboard */ = {
+		E3605D751F17D84C00E64947 /* Vendor.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				E3605D761F17D84C00E64947 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Vendor.storyboard;
 			sourceTree = "<group>";
 		};
 		E3605D7A1F17D84C00E64947 /* LaunchScreen.storyboard */ = {
@@ -511,6 +539,7 @@
 				E3605D981F17D84C00E64947 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E3605D991F17D84C00E64947 /* Build configuration list for PBXNativeTarget "PopUpPayAppTests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +548,7 @@
 				E3605D9B1F17D84C00E64947 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E3605D9C1F17D84C00E64947 /* Build configuration list for PBXNativeTarget "PopUpPayAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +557,7 @@
 				E3605D9E1F17D84C00E64947 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
