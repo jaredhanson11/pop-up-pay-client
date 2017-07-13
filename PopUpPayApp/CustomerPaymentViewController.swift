@@ -11,6 +11,7 @@ import PassKit
 
 class CustomerPaymentViewController: QRScanViewController {
 
+    var paymentData : [String : AnyObject]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +64,8 @@ class CustomerPaymentViewController: QRScanViewController {
     */
     
     func applePay(merchant_id: String, paymentData: [String : AnyObject]) {
+        self.paymentData = paymentData
+        
         let request = PKPaymentRequest()
         request.merchantIdentifier = merchant_id
         request.supportedNetworks = [PKPaymentNetwork.visa, PKPaymentNetwork.masterCard]
@@ -74,8 +77,14 @@ class CustomerPaymentViewController: QRScanViewController {
         var summaryItems = [PKPaymentSummaryItem]()
         
         let total = paymentData["total"] as! Double
-        let item = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(value: total))
-    
+        let items = paymentData["items"] as! [String : Int]
+        
+        for (item, quantity) in items {
+            var summaryItem = PKPaymentSummaryItem(label: item, amount: NSDecimalNumber(value: quantity))
+            summaryItems.append(summaryItem)
+        }
+
+        let item = PKPaymentSummaryItem(label: "Sally's Lemonade Stand", amount: NSDecimalNumber(value: total))
         summaryItems.append(item)
         request.paymentSummaryItems = summaryItems
 
@@ -96,6 +105,21 @@ extension CustomerPaymentViewController: PKPaymentAuthorizationViewControllerDel
     }
     
     func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
+        let client = self.paymentData?["client_id"] as! String
+        let merchant = self.paymentData?["merchant_id"] as! String
+        let transcation = self.paymentData?["transaction_id"] as! String
+        
+        let items = self.paymentData?["items"] as! [String : String]
+        let itemString = HTTPUtils.encodeData(items)
+        
+        let url = "http://17.236.37.33:5000/purchase/\(client)/\(merchant)/\(transcation)?\(itemString)"
+        HTTPUtils.getRequest(url, success: {
+            (data) -> Void in
+            print("YAY")
+            }, failed: {print($0!)}, badResponse: {print($0)}
+        )
+        
         controller.dismiss(animated: true, completion: nil)
+        
     }
 }

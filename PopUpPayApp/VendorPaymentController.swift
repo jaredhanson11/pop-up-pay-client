@@ -32,6 +32,8 @@ class VendorPaymentController: UIViewController {
         button.addTarget(self, action: #selector(self.displayQRCode), for: .touchUpInside)
         
         self.view.addSubview(button)
+        
+        self.cart = [:]
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,9 +80,19 @@ class VendorPaymentController: UIViewController {
     
     func cartToRequestString() -> String? {
         do {
-            let cartData = try JSONSerialization.data(withJSONObject: getCart(), options: [])
+            var fullCartData = [String : Any]()
+            fullCartData["items"] = getCart()
+            fullCartData["subtotal"] = calculateCartTotal()
+            fullCartData["tax"] = calculateTax(rawTotal: fullCartData["subtotal"] as! Double)
+            fullCartData["total"] = totalPurchaseAmount()
+            fullCartData["transaction_id"] = randomString(length: 5)
+            fullCartData["client_id"] = 1
+            fullCartData["merchant_id"] = "merchant.popuppay"
             
+            let cartData = try JSONSerialization.data(withJSONObject: fullCartData, options: [])
+        
             if let cartJson = String(data: cartData, encoding: .ascii) {
+                print(cartJson)
                 return cartJson
             } else {
                 return nil
@@ -90,10 +102,26 @@ class VendorPaymentController: UIViewController {
             return nil
         }
     }
+    func randomString(length: Int) -> String {
+        
+        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let len = UInt32(letters.length)
+        
+        var randomString = ""
+        
+        for _ in 0 ..< length {
+            let rand = arc4random_uniform(len)
+            var nextChar = letters.character(at: Int(rand))
+            randomString += NSString(characters: &nextChar, length: 1) as String
+        }
+        
+        return randomString
+    }
     
     func getCart() -> [String : Int] {
         //TODO: Replace
-        return ["lemonade" : 1, "cookies" : 2, "total" : 100]
+        // return ["lemonade" : 1, "cookies" : 2, "total" : 100]
+        return self.cart!
     }
     
     
@@ -105,10 +133,15 @@ class VendorPaymentController: UIViewController {
             cartTotal += (menu?[item]!)!
         }
         
-        cartTotal = cartTotal*1.9
-        
         return cartTotal
         
+    }
+    func calculateTax(rawTotal: Double) -> Double {
+        return rawTotal * 0.9
+    }
+    
+    func totalPurchaseAmount() ->Double {
+        return calculateCartTotal() + calculateTax(rawTotal: calculateCartTotal())
     }
     
     func updateCartButtonLabel() {
