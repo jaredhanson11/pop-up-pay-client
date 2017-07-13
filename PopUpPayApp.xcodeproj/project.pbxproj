@@ -10,6 +10,8 @@
 		AD6A4AEE1F17DF240097F2C7 /* Customer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD6A4AED1F17DF240097F2C7 /* Customer.storyboard */; };
 		AD6A4AF21F17DFF90097F2C7 /* CustomerPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6A4AF11F17DFF90097F2C7 /* CustomerPaymentViewController.swift */; };
 		AD6A4AF41F17E0360097F2C7 /* CustomerRecieptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6A4AF31F17E0360097F2C7 /* CustomerRecieptsViewController.swift */; };
+		AD6A4AF61F18012D0097F2C7 /* QRScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6A4AF51F18012D0097F2C7 /* QRScanViewController.swift */; };
+		ADAC0BFF1F1827BE000077BE /* HttpUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC0BFE1F1827BE000077BE /* HttpUtils.swift */; };
 		E3605D701F17D84C00E64947 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3605D6F1F17D84C00E64947 /* AppDelegate.swift */; };
 		E3605D721F17D84C00E64947 /* VendorPaymentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3605D711F17D84C00E64947 /* VendorPaymentController.swift */; };
 		E3605D741F17D84C00E64947 /* VendorRecieptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3605D731F17D84C00E64947 /* VendorRecieptsViewController.swift */; };
@@ -41,6 +43,9 @@
 		AD6A4AED1F17DF240097F2C7 /* Customer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Customer.storyboard; sourceTree = "<group>"; };
 		AD6A4AF11F17DFF90097F2C7 /* CustomerPaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerPaymentViewController.swift; sourceTree = "<group>"; };
 		AD6A4AF31F17E0360097F2C7 /* CustomerRecieptsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerRecieptsViewController.swift; sourceTree = "<group>"; };
+		AD6A4AF51F18012D0097F2C7 /* QRScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanViewController.swift; sourceTree = "<group>"; };
+		AD7055DE1F180C1400D29FC5 /* PopUpPayApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PopUpPayApp.entitlements; sourceTree = "<group>"; };
+		ADAC0BFE1F1827BE000077BE /* HttpUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpUtils.swift; sourceTree = "<group>"; };
 		E3605D6C1F17D84C00E64947 /* PopUpPayApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopUpPayApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3605D6F1F17D84C00E64947 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3605D711F17D84C00E64947 /* VendorPaymentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorPaymentController.swift; sourceTree = "<group>"; };
@@ -87,6 +92,7 @@
 			children = (
 				AD6A4AED1F17DF240097F2C7 /* Customer.storyboard */,
 				AD6A4AF11F17DFF90097F2C7 /* CustomerPaymentViewController.swift */,
+				AD6A4AF51F18012D0097F2C7 /* QRScanViewController.swift */,
 				AD6A4AF31F17E0360097F2C7 /* CustomerRecieptsViewController.swift */,
 			);
 			name = Customer;
@@ -125,7 +131,9 @@
 		E3605D6E1F17D84C00E64947 /* PopUpPayApp */ = {
 			isa = PBXGroup;
 			children = (
+				AD7055DE1F180C1400D29FC5 /* PopUpPayApp.entitlements */,
 				E3605D6F1F17D84C00E64947 /* AppDelegate.swift */,
+				ADAC0BFE1F1827BE000077BE /* HttpUtils.swift */,
 				AD6A4AEF1F17DF3A0097F2C7 /* Customer */,
 				AD6A4AF01F17DF480097F2C7 /* Vendor */,
 				E3605D781F17D84C00E64947 /* Assets.xcassets */,
@@ -221,7 +229,13 @@
 				TargetAttributes = {
 					E3605D6B1F17D84C00E64947 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = N7839A6JX7;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 1;
+							};
+						};
 					};
 					E3605D811F17D84C00E64947 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -288,6 +302,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADAC0BFF1F1827BE000077BE /* HttpUtils.swift in Sources */,
+				AD6A4AF61F18012D0097F2C7 /* QRScanViewController.swift in Sources */,
 				E3605D741F17D84C00E64947 /* VendorRecieptsViewController.swift in Sources */,
 				AD6A4AF21F17DFF90097F2C7 /* CustomerPaymentViewController.swift in Sources */,
 				E3605D701F17D84C00E64947 /* AppDelegate.swift in Sources */,
@@ -446,9 +462,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PopUpPayApp/PopUpPayApp.entitlements;
+				DEVELOPMENT_TEAM = N7839A6JX7;
 				INFOPLIST_FILE = PopUpPayApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = PopUpPay.PopUpPayApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.popuppay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -458,9 +477,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PopUpPayApp/PopUpPayApp.entitlements;
+				DEVELOPMENT_TEAM = N7839A6JX7;
 				INFOPLIST_FILE = PopUpPayApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = PopUpPay.PopUpPayApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.popuppay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
